@@ -40,11 +40,11 @@ function DrawLine() {
   const scene = new THREE.Scene();
 
   const renderer = new THREE.WebGLRenderer();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(window.innerWidth, 200);
   document.body.appendChild(renderer.domElement);
 
   // 定义相机
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 200, 0.1, 1000);
   // camera.position.set(0, 0, 100);
   camera.position.z = 5;
   camera.lookAt(0, 0, 0);
@@ -66,6 +66,8 @@ function DrawLine() {
   // const loader = new FontLoader();
 
   const loader = new GLTFLoader();
+  // http://127.0.0.1:5500/examples/models/gltf/
+  // http://127.0.0.1:5500/manual/examples/resources/models/knight/KnightCharacter.gltf
   loader.load('http://127.0.0.1:5500/examples/models/gltf/Horse.glb', function (gltf) {
     scene.add(gltf.scene);
   }, undefined, function (error) {
